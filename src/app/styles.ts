@@ -7,6 +7,7 @@ const AppContainer = styled.div`
 `;
 
 const AppHeader = styled.header`
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,6 +15,10 @@ const AppHeader = styled.header`
     box-sizing: border-box;
     background-color:rgb(85, 85, 120);
     color: #fff;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 110px;
 `;
 
 const HeaderTitle = styled.h1`
@@ -28,6 +33,7 @@ const AppBody = styled.section`
     padding: 25px;
     box-sizing: border-box;
     width: 100%;
+    justify-content: space-around;
 `;
 
 export { AppContainer, AppHeader, HeaderTitle, AppBody }

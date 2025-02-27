@@ -1,13 +1,15 @@
-import { useDispatch, useSelector } from "react-redux"
-import { CartItem } from "./CartItem"
-import { CartClose, CartContainer, CartTitle } from "./styles"
+import { useDispatch, useSelector } from "react-redux";
+import { CartItem } from "./CartItem";
+import { CartCheckout, CartClose, CartContainer, CartTitle, CartTitleContainer } from "./styles";
 import { ICartItem } from "../../interfaces/Cart";
 import { removeCartItem } from "../../state/cart.slice";
 import { IState } from "../../interfaces/State";
 import { CartTotal } from "./CartTotal";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartStore = useSelector<IState, ICartItem[]>(state => state.cart.items);
     const handleRemoveItem = (id:number) => {
@@ -23,10 +25,17 @@ export const Cart = () => {
         e.currentTarget.parentElement?.classList.remove('--shown');
     }
 
+    const handleCheckoutClick = () => {
+        navigate("/checkout");
+    }
+
     return (
         <CartContainer className="cartContainer">
             <CartClose onClick={handleCloseCart}>X</CartClose>
-            <CartTitle>Carrito</CartTitle>
+            <CartTitleContainer>
+                <CartTitle>Carrito</CartTitle>
+                <CartCheckout disabled={!cartHasItems} onClick={handleCheckoutClick}>Comprar</CartCheckout>
+            </CartTitleContainer>
             {cartHasItems ? <CartTotal items={cartStore} /> : <></> }
             {cartHasItems ? cartItemsContent : <p>Agrega algunos articulos</p> }
             {cartHasItems ? <CartTotal items={cartStore} /> : <></> }

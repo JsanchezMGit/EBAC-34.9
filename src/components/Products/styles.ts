@@ -6,6 +6,7 @@ export const ProductsContainer = styled.section`
     grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
     padding: 25px;
+    padding-top: 110px;
 
     @media (max-width: 1280px) {
         grid-template-columns: repeat(3, 1fr);
