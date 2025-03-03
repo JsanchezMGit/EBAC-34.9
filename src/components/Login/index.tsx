@@ -1,5 +1,5 @@
 import { useState } from "react";
-import userData from "../../data/user.json";
+import userDB from "../../data/users.json";
 import { LoginContainer, LoginInput, LoginError, LoginButton, LoginInputContainer } from "./styles";
 import { User } from "../../types/User";
 import { useDispatch } from "react-redux";
@@ -25,10 +25,10 @@ const Login = () => {
     const handleSubmit = (e:React.FormEvent<HTMLElement>) => {
         e.preventDefault();
         setLoginError("");
-        if (userFormData.userName === userData.name && userFormData.password === userData.password) {
-            setUserFormData(c => ({...c, logged: true}));
+        if (userDB.find(c => c.name === userFormData.userName && c.password === userFormData.password)) {
+            setUserFormData(c => ( {...c, logged: true}));
             dispatch(setUserLogged({ userName: userFormData.userName, logged: true }));
-            navigate("/products");
+            navigate("/");
         } else {
             setLoginError("El usuario y/o contraseña no son correctos");
         }

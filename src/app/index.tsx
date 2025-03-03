@@ -22,8 +22,8 @@ export const App = () => {
         <Menu />          
         <AppBody>
         <Routes>
-          <Route path="/" element={ <Login /> } />
-          <Route path="/products" element={ <Products /> } />
+          <Route path="/" element={ <Products /> } />
+          <Route path="/login" element={ <Login /> } />
           <Route path="/checkout" element={ <Checkout /> } />
         </Routes>            
           <Cart />

@@ -11,25 +11,25 @@ import { Checkout } from "../components/Checkout";
 import "@testing-library/jest-dom";
 
 test("El carrito de compra no se debe mostrar abierto", () => {
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><Cart/></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><Cart/></MemoryRouter></Provider>);
     expect(screen.getByText("Carrito").parentElement.className.indexOf("--shown") === -1).toBeTruthy();
 });
 
 test("Al hacer clic en el icono del carrito se debe abrir la seccion del carrito de compras", () => {
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><AppHeader><CartIcon /></AppHeader><Cart /></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><AppHeader><CartIcon /></AppHeader><Cart /></MemoryRouter></Provider>);
     fireEvent.click(screen.getByAltText("Icono de carrito de compra").parentElement);
     expect(screen.getByText("X").parentElement.className.indexOf("--shown") > -1).toBeTruthy();
 });
 
 test("Al hacer clic en el boton 'X' del carrito de compras se debe cerrar la seccion del carrito de compras", () => {
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><Cart/></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><Cart/></MemoryRouter></Provider>);
     const cartCloseElement = screen.getByText("X");
     fireEvent.click(cartCloseElement);
     expect(screen.getByText("Carrito").parentElement.className.indexOf("--shown") === -1).toBeTruthy();
 });
 
 test("La seccion del carrito de compras, debe mostrar el mensaje 'Agrega algunos articulos' si no existen productos agregados", () => {
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><Cart/></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><Cart/></MemoryRouter></Provider>);
     expect(screen.getByText("Agrega algunos articulos")).toBeDefined();
 });
 
@@ -42,7 +42,7 @@ test("Al hacer clic en el boton del icono del bote de basura, se debe eliminar e
         category:"men's clothing",
         image:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     };
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><Product key={product.id} data={product} /><Cart/></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><Product key={product.id} data={product} /><Cart/></MemoryRouter></Provider>);
     const addToCartElement = screen.getByText("Agregar al carrito");
     fireEvent.click(addToCartElement);
     const productElementsAdded = await screen.findAllByText(`${product.title}`);
@@ -73,7 +73,7 @@ test("Se debe de dirigir a la seccion de checkout cuando se haga clic en el boto
     render(<Provider store={store}>
             <MemoryRouter>
                <Routes>
-                    <Route path="/" element={ <></> } />
+                    <Route path="/login" element={ <></> } />
                     <Route path="/checkout" element={ <Checkout /> } />
                 </Routes>
             <Cart/>

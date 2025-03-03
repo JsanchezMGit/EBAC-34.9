@@ -8,7 +8,7 @@ import Login from "../components/Login";
 import { Products } from "../components/Products";
 
 test("Se debe mostrar el mensaje 'El usuario y/o contraseña no son correctos' cuando se introduca una combinacion de usuario y contraseña incorrecta", () => {
-    render(<Provider store={store}><MemoryRouter initialEntries={["/"]}><Login/></MemoryRouter></Provider>);
+    render(<Provider store={store}><MemoryRouter initialEntries={["/login"]}><Login/></MemoryRouter></Provider>);
     fireEvent.change(screen.getByLabelText("Nombre de usuario"), {target: {value: "EBAC"}});
     fireEvent.change(screen.getByLabelText("Contraseña"), {target: {value: "EBAC123"}});
     fireEvent.click(screen.getByText("Entrar"));
@@ -19,8 +19,8 @@ test("Se debe de dirigir a la seccion de productos cuando se introduca una combi
     render(<Provider store={store}>
             <MemoryRouter>
                 <Routes>
-                    <Route path="/" element={ <Login /> } />
-                    <Route path="/products" element={ <Products /> } />
+                    <Route path="/login" element={ <Login /> } />
+                    <Route path="/" element={ <Products /> } />
                 </Routes>
             </MemoryRouter>
            </Provider>);

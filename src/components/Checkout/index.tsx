@@ -25,7 +25,7 @@ export const Checkout = () => {
     const handleCheckoutClick = () => {
         document.getElementById('notificationContainer')?.classList.add('--shown');
         dispatch(resetCart({}));
-        navigate("/products");
+        navigate("/");
     }
 
     return (

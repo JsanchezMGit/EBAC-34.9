@@ -20,8 +20,8 @@ const Menu = () => {
         <MenuContainer $left={menuStore.open ? '0' : '-100%'}>
             <MenuUserName>Hola {userStore.logged ? userStore.userName : "Anonimo" }</MenuUserName>
             <MenuNav>
-                { userStore.logged ? <MenuNavItem onClick={logOff}>Cerrar sesion</MenuNavItem> : <MenuNavItem onClick={() => {navigate("/");}}>Iniciar sesion</MenuNavItem> }
-                <MenuNavItem onClick={() => {navigate("/products");}}>Productos</MenuNavItem>
+                { userStore.logged ? <MenuNavItem onClick={logOff}>Cerrar sesion</MenuNavItem> : <MenuNavItem onClick={() => {navigate("/login");}}>Iniciar sesion</MenuNavItem> }
+                <MenuNavItem onClick={() => {navigate("/");}}>Productos</MenuNavItem>
             </MenuNav>
         </MenuContainer>
     )
