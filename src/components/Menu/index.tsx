@@ -3,7 +3,7 @@ import { IState } from "../../interfaces/State";
 import { User } from "../../types/User";
 import { MenuContainer, MenuUserName, MenuNav, MenuNavItem } from "./styles";
 import { Menu as MenuType } from "../../types/Menu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUserLoggOff } from "../../state/user.slice";
 

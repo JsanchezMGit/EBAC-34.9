@@ -4,7 +4,7 @@ import { LoginContainer, LoginInput, LoginError, LoginButton, LoginInputContaine
 import { User } from "../../types/User";
 import { useDispatch } from "react-redux";
 import { setUserLogged } from "../../state/user.slice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const Login = () => {
 
@@ -42,8 +42,9 @@ const Login = () => {
     return(
         <LoginContainer onSubmit={handleSubmit}>
             <LoginInputContainer>
-                <label>Nombre de usuario</label>
+                <label htmlFor="userName">Nombre de usuario</label>
                 <LoginInput
+                    id="userName"
                     required
                     name="userName"
                     type="text"
@@ -51,8 +52,9 @@ const Login = () => {
                     onChange={handleInputChange} />
             </LoginInputContainer>
             <LoginInputContainer>
-                <label>Contraseña</label>
+                <label htmlFor="password">Contraseña</label>
                 <LoginInput
+                    id="password"
                     required
                     name="password"
                     type="password"

@@ -6,7 +6,7 @@ import { removeCartItem } from "../../state/cart.slice";
 import { IState } from "../../interfaces/State";
 import { CartTotal } from "./CartTotal";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export const Cart = () => {
     const navigate = useNavigate();

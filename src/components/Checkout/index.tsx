@@ -7,7 +7,7 @@ import { CartTotal } from "../Cart/CartTotal";
 import { CartItemContainer, CartItemCount, CartItemImage, CartItemName, CartItemPrice } from "../Cart/CartItem/styles";
 import { useDispatch } from "react-redux";
 import { resetCart } from "../../state/cart.slice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 export const Checkout = () => {
     const navigate = useNavigate();
