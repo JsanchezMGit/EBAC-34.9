@@ -17,7 +17,7 @@ test("Se debe mostrar el mensaje 'El usuario y/o contraseña no son correctos' c
 
 test("Se debe de dirigir a la seccion de productos cuando se introduca una combinacion de usuario y contraseña correcta", async () => {
     render(<Provider store={store}>
-            <MemoryRouter>
+            <MemoryRouter initialEntries={["/login"]}>
                 <Routes>
                     <Route path="/login" element={ <Login /> } />
                     <Route path="/" element={ <Products /> } />

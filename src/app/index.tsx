@@ -9,6 +9,7 @@ import MenuIcon from "../components/Menu/MenuIcon";
 import Menu from "../components/Menu";
 import { Checkout } from "../components/Checkout";
 import { Notification } from "../components/Notification";
+import Register from "../components/Register";
 
 export const App = () => {
   return (
@@ -25,6 +26,7 @@ export const App = () => {
           <Route path="/" element={ <Products /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/checkout" element={ <Checkout /> } />
+          <Route path="/register" element={ <Register /> } />
         </Routes>            
           <Cart />
         </AppBody>

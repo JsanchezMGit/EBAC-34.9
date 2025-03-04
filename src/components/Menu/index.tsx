@@ -1,26 +1,28 @@
 import { useSelector } from "react-redux";
 import { IState } from "../../interfaces/State";
-import { User } from "../../types/User";
+import { User } from "../../models/User";
 import { MenuContainer, MenuUserName, MenuNav, MenuNavItem } from "./styles";
-import { Menu as MenuType } from "../../types/Menu";
+import { Menu as MenuType } from "../../models/Menu";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { setUserLoggOff } from "../../state/user.slice";
+import { userLoggOff } from "../../state/session.slice";
+import { Session } from "../../models/Session";
 
 const Menu = () => {
     const dispatch = useDispatch();
-    const userStore = useSelector<IState, User>(state => state.user);
+    const sessionStore = useSelector<IState, Session>(state => state.session);
     const menuStore = useSelector<IState, MenuType>(state => state.menu);
     const navigate = useNavigate();
     const logOff = () => {
-        dispatch(setUserLoggOff({}));
+        dispatch(userLoggOff({}));
     }
 
     return(
         <MenuContainer $left={menuStore.open ? '0' : '-100%'}>
-            <MenuUserName>Hola {userStore.logged ? userStore.userName : "Anonimo" }</MenuUserName>
+            <MenuUserName>Hola {sessionStore.user !== null ? sessionStore.user.userName : "Anonimo" }</MenuUserName>
             <MenuNav>
-                { userStore.logged ? <MenuNavItem onClick={logOff}>Cerrar sesion</MenuNavItem> : <MenuNavItem onClick={() => {navigate("/login");}}>Iniciar sesion</MenuNavItem> }
+                <MenuNavItem onClick={() => {navigate("/register");}}>Registrarse</MenuNavItem>
+                { sessionStore.user !== null  ? <MenuNavItem onClick={logOff}>Cerrar sesion</MenuNavItem> : <MenuNavItem onClick={() => {navigate("/login");}}>Iniciar sesion</MenuNavItem> }
                 <MenuNavItem onClick={() => {navigate("/");}}>Productos</MenuNavItem>
             </MenuNav>
         </MenuContainer>

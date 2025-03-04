@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-const LoginContainer = styled.form`
+const FormContainer = styled.form`
     padding-top: 110px;
     min-height: 400px;
     display: grid;
@@ -8,17 +8,17 @@ const LoginContainer = styled.form`
     justify-items: center;    
 `;
 
-const LoginInputContainer = styled.div`
+const InputContainer = styled.div`
     display: grid;
 `;
 
-const LoginInput = styled.input`
+const Input = styled.input`
     margin-top: .5rem;
     width: 20em;
     height: 2rem;
 `;
 
-const LoginButton = styled.button`
+const Button = styled.button`
     width: 20em;
     height: 2rem; 
     border-radius: 1rem;
@@ -28,8 +28,8 @@ const LoginButton = styled.button`
     cursor: pointer;
 `;
 
-const LoginError = styled.p`
+const Error = styled.p`
     color:#ff0000;
 `;
 
-export { LoginContainer, LoginInputContainer, LoginInput, LoginButton, LoginError }
+export { FormContainer, InputContainer, Input, Button, Error }

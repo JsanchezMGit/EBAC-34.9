@@ -18,7 +18,7 @@ export const Cart = () => {
 
     const cartHasItems = cartStore.length > 0;
     const cartItemsContent = cartStore.map(item => 
-        (<CartItem key={item.product.id} product={item.product} count={item.count} onRemove={() => handleRemoveItem(item.product.id)} />)
+        (<CartItem key={item.product.id} product={item.product} count={item.count} onRemove={() => handleRemoveItem(item?.product?.id ?? 0)} />)
     );
 
     const handleCloseCart = (e: React.MouseEvent<HTMLElement>) => {
