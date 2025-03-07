@@ -17,7 +17,7 @@ export const Checkout = () => {
     const cartItemsContent = cartStore.map(c => 
         (<CartItemContainer key={c.product.id} data-testid={c.product.id}>
             <CartItemCount>{c.count}</CartItemCount>
-            <CartItemImage src={c.product.image} alt={c.product.title} />
+            <CartItemImage src={c.product.image} alt={`Producto ${c.product.title} en el carrito`} />
             <CartItemName>{c.product.title}</CartItemName>
             <CartItemPrice>${c.product.price}</CartItemPrice>
         </CartItemContainer>)
@@ -32,7 +32,7 @@ export const Checkout = () => {
         <CheckoutContainer>
             <CartTitleContainer>
                 <CartTitle>Confirmacion de productos</CartTitle>
-                <CartCheckout disabled={!cartHasItems} onClick={handleCheckoutClick}>Confirmar comprar</CartCheckout>
+                <CartCheckout aria-disabled={!cartHasItems} disabled={!cartHasItems} onClick={handleCheckoutClick}>Confirmar comprar</CartCheckout>
             </CartTitleContainer>
             {cartHasItems ? cartItemsContent : <p>Agrega algunos articulos</p> }
             {cartHasItems ? <CartTotal items={cartStore} /> : <></> }

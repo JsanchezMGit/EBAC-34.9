@@ -12,7 +12,7 @@ const MenuIcon = () => {
     }
 
     return(
-        <MenuContainer onClick={handleMenuClick}>
+        <MenuContainer role="button" onClick={handleMenuClick}>
             <img src={menuIco} alt="Icono del menu" />
         </MenuContainer>
     )

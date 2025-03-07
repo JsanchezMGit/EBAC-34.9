@@ -60,7 +60,7 @@ const Login = () => {
                     onChange={handleInputChange} />
             </InputContainer>
             <Button type="submit">Entrar</Button>
-            { loginError != "" ? <Error>{loginError}</Error> : <></> }
+            { loginError !== "" ? <Error>{loginError}</Error> : <></> }
         </FormContainer>
     )
 }

@@ -69,7 +69,7 @@ const Register = () => {
                     onChange={handleInputChange} />
             </InputContainer>            
             <Button type="submit">Registrar</Button>
-            { registerError != "" ? <Error>{registerError}</Error> : <></> }
+            { registerError !== "" ? <Error>{registerError}</Error> : <></> }
         </FormContainer>
     )
 }

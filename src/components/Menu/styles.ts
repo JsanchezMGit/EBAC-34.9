@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MenuContainer = styled.section<{ $left?: string; }>`
+const MenuContainer = styled.aside<{ $left?: string; }>`
     position: fixed;
     top: 110px;
     left: ${props => props.$left};

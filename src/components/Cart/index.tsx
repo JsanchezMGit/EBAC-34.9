@@ -31,10 +31,10 @@ export const Cart = () => {
 
     return (
         <CartContainer className="cartContainer">
-            <CartClose onClick={handleCloseCart}>X</CartClose>
+            <CartClose role="button" aria-label="Cerrar carrito" onClick={handleCloseCart}>X</CartClose>
             <CartTitleContainer>
                 <CartTitle>Carrito</CartTitle>
-                <CartCheckout disabled={!cartHasItems} onClick={handleCheckoutClick}>Comprar</CartCheckout>
+                <CartCheckout aria-disabled={!cartHasItems} disabled={!cartHasItems} onClick={handleCheckoutClick}>Comprar</CartCheckout>
             </CartTitleContainer>
             {cartHasItems ? <CartTotal items={cartStore} /> : <></> }
             {cartHasItems ? cartItemsContent : <p>Agrega algunos articulos</p> }

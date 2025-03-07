@@ -15,7 +15,7 @@ export const CartIcon = () => {
     }
 
     return (
-        <CartIconContainer onClick={handleCartIcoClick}>
+        <CartIconContainer role="button" onClick={handleCartIcoClick}>
             <img src={cartIcon} alt="Icono de carrito de compra" />
             <CartCount className="cart-count">{cartCount < 10 ? `0${cartCount}` : `${cartCount}`}</CartCount>
         </CartIconContainer>

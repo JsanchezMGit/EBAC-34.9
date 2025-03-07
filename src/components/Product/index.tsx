@@ -26,7 +26,7 @@ export const Product = ({data}:IProduct) => {
     return(
         <ProductContainer>
             <ProductTitle>{data.title}</ProductTitle>
-            <ProductImage src={data.image} alt={data.title} />
+            <ProductImage src={data.image} alt={`Foto producto - ${data.title}`} />
             <ProductPrice>${data.price}</ProductPrice>
             <AddProduct data-id={data.id} onClick={handleAddProduct}>Agregar al carrito</AddProduct>
         </ProductContainer>

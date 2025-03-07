@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { IState } from "../../interfaces/State";
-import { User } from "../../models/User";
 import { MenuContainer, MenuUserName, MenuNav, MenuNavItem } from "./styles";
 import { Menu as MenuType } from "../../models/Menu";
 import { useNavigate } from "react-router";
